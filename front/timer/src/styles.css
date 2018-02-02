@@ -1,0 +1,35 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+.form {
+    width: 100%;
+}
+
+.full-width {
+    width: 100%;
+}
+.radio-group {
+    display: inline-flex;
+    flex-direction: column;
+}
+
+.radio-button {
+    margin: 5px;
+}
+
+.selected-value {
+    margin: 15px 0;
+}
+mat-card{
+    margin-left: 1%;
+    margin-right: 1%;
+    margin-bottom: 5px;
+}
+@media screen and (min-width: 800px) {
+    mat-card{
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-bottom: 5px;
+
+    }
+}

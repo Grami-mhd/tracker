@@ -1,0 +1,43 @@
+<div >
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                Book a new Time:
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="form" novalidate>
+                <mat-radio-group class="radio-group" [(ngModel)]="input.source" name="type" >
+                    <mat-radio-button class="radio-button" value="top" >
+                        Add from the tracker
+                    </mat-radio-button>
+                    <mat-radio-button class="radio-button" value="new" >
+                        Add another time track
+                    </mat-radio-button>
+                </mat-radio-group>
+                <div *ngIf="input.source=='new'">
+                    <mat-form-field >
+                        <input matInput  type="number" min="0" [(ngModel)]="input.time.hours" name="houres">
+                    </mat-form-field>
+                    <mat-form-field >
+                        <input matInput (change)="newTrackChange()" type="number" min="0" max="60" [(ngModel)]="input.time.minutes" name="minuts">
+                    </mat-form-field>
+                    <mat-form-field >
+                        <input matInput (change)="newTrackChange()" type="number" min="0" max="60" [(ngModel)]="input.time.seconds" name="seconds">
+                    </mat-form-field>
+                </div>
+                <mat-form-field class="full-width">
+                    <textarea matInput placeholder="Leave a comment" [(ngModel)]="input.description"
+                              matTextareaAutosize matAutosizeMinRows="2" name="description"></textarea>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput  [value]="input.date | date:'yyyy-MM-dd'" (input)="input.date=parseDate($event.target.value)"
+                         name="date" type="date">
+                </mat-form-field>
+                <button class="full-width" mat-raised-button color="primary"
+                            [disabled]="(input.description.trim()=='')||(input.date==null)||((input.source=='new')&&(input.time.empty()))"
+                    (click)="addNewTrack()">Submit this track</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

@@ -1,0 +1,3 @@
+timerapi:
+    resource: "@timerapiBundle/Resources/config/routing.yml"
+    prefix:   /api

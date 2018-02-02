@@ -1,0 +1,13 @@
+<div>
+    <button [disabled]="!on" (click)="pause()" mat-icon-button color="accent">
+        <mat-icon >pause_circle_filled</mat-icon>
+    </button>
+    <button [disabled]="on" (click)="play()" mat-icon-button color="primary">
+        <mat-icon >play_circle_filled</mat-icon>
+    </button>
+    <button [disabled]="time.empty() || done" (click)="stop()" mat-icon-button color="warn">
+        <mat-icon >stop</mat-icon>
+    </button>
+    <span >{{time.format()}}</span>
+    <label *ngIf="finalCount">{{finalCount}}</label>
+</div>

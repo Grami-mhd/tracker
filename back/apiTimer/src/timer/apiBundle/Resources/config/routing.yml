@@ -1,0 +1,4 @@
+typo_script_backend_typoscript_type:
+    resource: "timer\\apiBundle\Controller\DefaultController"
+    type: rest
+    prefix: /tracks
